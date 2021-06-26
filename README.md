@@ -1,3 +1,3 @@
 # astaroth-framework
 
-### [Документация](vendor/labile/astaroth-core/README.md)
+### [Документация](/vendor/labile/astaroth-core/README.md)
