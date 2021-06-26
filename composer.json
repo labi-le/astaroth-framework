@@ -1,0 +1,23 @@
+{
+    "name": "labile/astaroth-framework",
+    "description": "framework for creating VK bots",
+    "type": "project",
+    "authors": [
+        {
+            "name": "labile",
+            "email": "1a6i1e@gmail.com"
+        }
+    ],
+
+    "minimum-stability": "stable",
+
+    "require": {
+        "labile/astaroth-core": "^2.0"
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}
