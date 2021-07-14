@@ -1,28 +1,21 @@
 <?php
 
-use Astaroth\Auth\Configuration;
-use Astaroth\Handler\LazyHandler;
-use Astaroth\Route\Route;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-
-$container = new ContainerBuilder();
-$configuration = (new Configuration(dirname(__DIR__)))
+$container = new \Symfony\Component\DependencyInjection\ContainerBuilder();
+$configuration = (new \Astaroth\Auth\Configuration(dirname(__DIR__)))
     ->get();
 
-//print_r($configuration);
 
 array_walk($configuration, static fn($value, $key) => $container->setParameter($key, $value));
 
-$facades = require "containers.php";
+foreach (\HaydenPierce\ClassFinder\ClassFinder::getClassesInNamespace("Astaroth\Services") as $service) {
+    $service = new $service;
+    $service($container);
+}
 
-new \Astaroth\Support\Facades\Facade(
-    ...array_map(static function ($facade) use ($container) {
-        return (new $facade($container->getParameter("API_VERSION")))
-            ->setDefaultToken($container->getParameter("ACCESS_TOKEN"));
-    }, $facades)
-);
+new \Astaroth\Support\Facades\Facade($container);
 
-(new Route(
-    new LazyHandler((new \Astaroth\Bootstrap\BotInstance($container))->bootstrap())))
+
+(new \Astaroth\Route\Route(
+    new \Astaroth\Handler\LazyHandler((new \Astaroth\Bootstrap\BotInstance($container))->bootstrap())))
     ->setClassMap($container->getParameter("APP_NAMESPACE"))
     ->handle();
