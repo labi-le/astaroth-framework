@@ -4,7 +4,7 @@
 [![PHP](https://img.shields.io/packagist/php-v/labile/astaroth-core)](https://github.com/labi-le/astaroth-core)
 [![Download Stats](https://img.shields.io/packagist/dt/labile/astaroth-core)](https://packagist.org/packages/labile/astaroth-core/stats)
 [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/labi-le/astaroth-core/blob/main/LICENSE)
-[![Commit Activity](https://img.shields.io/github/commit-activity/m/labi-le/astaroth-core)](https://github.com/labi-le/astaroth-core)
+[![Code Size](https://img.shields.io/github/languages/code-size/labi-le/astaroth-core)](https://github.com/labi-le/astaroth-core)
 
 Личный фреймворк для создания ботов
 
