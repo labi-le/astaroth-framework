@@ -13,6 +13,7 @@ ___
    - [Message](#Message)
    - [Attachment](#Attachment)
    - [Payload](#Payload)
+   - [ClientInfo](#ClientInfo)
 
 ### MessageNew
 
@@ -139,6 +140,27 @@ class Foo
     #[Payload(["button" => 12])]
     #[Payload(["button" => ["user_id" => 418618]])]
     #[Payload(["button" => ["user_id" => 418618]], Payload::KEY_EXISTS)]
+    public function method(Data $data){//...}
+}
+
+```
+### ClientInfo
+
+Указывается для метода\
+Необходим, для того чтобы узнать поддерживает ли клиент пользователя новые фичи вконтакте (https://vk.com/faq15855) \
+`Для button_actions указывается массив`
+
+```php
+use Astaroth\Attribute\Conversation;
+use Astaroth\Attribute\ClientInfo;
+use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\Event\MessageNew;
+
+#[Conversation(Conversation::ALL)]
+#[MessageNew]
+class Foo
+{
+    #[ClientInfo([ClientInfo::CALLBACK, ClientInfo::VKPAY], keyboard: true, inline_keyboard: true)]
     public function method(Data $data){//...}
 }
 ```
