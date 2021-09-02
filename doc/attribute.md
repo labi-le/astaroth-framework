@@ -164,4 +164,3 @@ class Foo
     public function method(Data $data){//...}
 }
 ```
-
