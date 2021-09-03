@@ -1,6 +1,6 @@
 # Astaroth
 
-1. [Генератор клавиатуры](https://github.com/labi-le/astaroth-core)
+1. [Генератор клавиатуры](https://github.com/labi-le/astaroth-vk-keyboard)
 2. Нативные фасады
    + [Отправить сообщение](#send-message)
    + [Создать пост](#create-post)
