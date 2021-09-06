@@ -15,6 +15,7 @@ ___
    - [Attachment](#Attachment)
    - [Payload](#Payload)
    - [ClientInfo](#ClientInfo)
+   - [State](#State)
 
 ### MessageNew
 
@@ -181,6 +182,27 @@ use Astaroth\Attribute\Event\MessageNew;
 class Foo
 {
     #[ClientInfo([ClientInfo::CALLBACK, ClientInfo::VKPAY], keyboard: true, inline_keyboard: true)]
+    public function method(Data $data){//...}
+}
+```
+
+### State
+//todo реализовать
+
+Указывается как для метода, так и для класса\
+Доступ к классу\вызов метода если в сессии есть это состояние\n
+
+```php
+use Astaroth\Attribute\State;
+use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\Event\MessageNew;
+
+#[Conversation(Conversation::ALL)]
+#[MessageNew]
+#[State(/* не реализовано */)]
+class Foo
+{
+    #[State(/* не реализовано */)]
     public function method(Data $data){//...}
 }
 ```
