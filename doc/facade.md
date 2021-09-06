@@ -6,6 +6,7 @@
     + [Создать пост](#create-post)
     + [Сделать запрос](#create-request)
     + [Загрузить вложение](#create-attachments)
+    + [Entity](#entity)
 
 ### Send Message
 
@@ -27,7 +28,7 @@ use Astaroth\Support\Facades\Create;
 use Astaroth\VkUtils\Builders\Message;
 use Astaroth\VkUtils\Builders\Post;
 
-Create::create(
+Create::new(
     (new Message())
         ->setPeerId(418618)
         ->setMessage("приветик %@name"),
@@ -63,6 +64,26 @@ Upload::attachments(
     new PhotoMessages("path"),
     new PhotoMessages("path"),
 );
+
+//string[]
+```
+
+### Entity
+
+Entity manager из doctrine
+```php
+use Astaroth\Support\Facades\Entity;
+
+$entity = new Entity;
+
+//pseudo entity
+$videoStorage = (new VideoStorage)
+    ->setId("xij8x8whijn")
+    ->setTitle("beer")
+    ->setDescription("I drink beer and walk around St. Petersburg");
+    
+$entity->persist($videoStorage)''
+$entity->flush();
 
 //string[]
 ```
