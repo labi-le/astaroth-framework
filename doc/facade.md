@@ -3,14 +3,15 @@
 1. [Генератор клавиатуры](https://github.com/labi-le/astaroth-vk-keyboard)
 2. Нативные фасады
     + [Отправить сообщение, опубликовать пост](#send-message)
-    + [Создать пост](#create-post)
     + [Сделать запрос](#create-request)
     + [Загрузить вложение](#create-attachments)
     + [Entity](#entity)
+    + [Session](#session)
+    + [Queue](#queue)
 
 ### Send Message
 
-Фасад облегчающий отправку сообщений
+Фасад облегчающий отправку сообщений\
 Можно использовать плейсхолдеры для динамики сообщений
 
 ````
@@ -21,7 +22,6 @@
 Фамилия "%last-name"
 Фамилия с упоминанием "%@last-name"
 ````
-
 
 ```php
 use Astaroth\Support\Facades\Create;
@@ -41,16 +41,18 @@ Create::new(
 
 ### Create request
 
-Фасад облегчающий запросы к vk api
+Сделать запрос к vk api
+
 ```php
 use Astaroth\Support\Facades\Request;
 
-Request::request("users.get", ["user_ids" => 418618, "fields" => "sex"], "token");
+Request::call("users.get", ["user_ids" => 418618, "fields" => "sex"], "token");
 ```
 
 ### Create attachments
 
 Фасад облегчающий загрузку вложений
+
 ```php
 use Astaroth\Support\Facades\Upload;
 use Astaroth\VkUtils\Builders\Attachments\Message\PhotoMessages;
@@ -71,6 +73,7 @@ Upload::attachments(
 ### Entity
 
 Entity manager из doctrine
+
 ```php
 use Astaroth\Support\Facades\Entity;
 
@@ -84,6 +87,46 @@ $videoStorage = (new VideoStorage)
     
 $entity->persist($videoStorage)''
 $entity->flush();
-
-//string[]
 ```
+
+### Session
+
+Сессия которые позволяют сохранять любое состояние (при должном опыте можно засунуть анонимную функцию)
+
+```php
+use Astaroth\Support\Facades\Session;
+
+$session = new Session(418618, "anime");
+
+$current_episode = $session->get("current_episode");
+$session->put("current_episode", ++$current_episode);
+```
+
+### Queue
+
+Очереди (также известные как сцены)\
+Механизм с помощью которого можно добавить интерактивности диалогу
+
+```php
+use Astaroth\Support\Facades\Queue;
+
+new Queue(418618, "pay",
+    static function(Queue $q){
+        //первая сцена
+        $q->next();
+    },
+    
+    static function(Queue $q){
+        //вторая сцена
+        if ($q->get("year") < 18){
+            $q->rewind();
+        }
+        
+        $q->next();
+    },
+    
+    //...
+    
+    );
+```
+
