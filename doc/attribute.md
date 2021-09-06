@@ -11,6 +11,7 @@ ___
 
    - [Conversation](#Conversation)
    - [Message](#Message)
+   - [MessageRegex](#MessageRegex)
    - [Attachment](#Attachment)
    - [Payload](#Payload)
    - [ClientInfo](#ClientInfo)
@@ -82,6 +83,25 @@ class Bar
     #[Message("начинается с", Message::START_AS)]
     #[Message("похоже на", Message::SIMILAR_TO)]
     #[Message("без валидации, сравнивает точь в точь")]
+    public function method(Data $data){//...}
+}
+```
+
+### MessageRegex
+
+То же самое что и аттрибут выше, но поиск по регулярным выражениям
+
+```php
+use Astaroth\Attribute\Conversation;
+use Astaroth\Attribute\MessageRegex;
+use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\DataFetcher\Events\MessageNew as Data;
+
+#[Conversation(Conversation::ALL)]
+#[MessageNew]
+class Bar
+{
+    #[Message('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i')]
     public function method(Data $data){//...}
 }
 ```
