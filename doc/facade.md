@@ -2,10 +2,10 @@
 
 1. [Генератор клавиатуры](https://github.com/labi-le/astaroth-vk-keyboard)
 2. Нативные фасады
-   + [Отправить сообщение](#send-message)
-   + [Создать пост](#create-post)
-   + [Сделать запрос](#create-request)
-   + [Загрузить вложение](#create-attachments)
+    + [Отправить сообщение, опубликовать пост](#send-message)
+    + [Создать пост](#create-post)
+    + [Сделать запрос](#create-request)
+    + [Загрузить вложение](#create-attachments)
 
 ### Send Message
 
@@ -23,49 +23,38 @@
 
 
 ```php
-use Astaroth\Support\Facades\Message\BuilderFacade;
+use Astaroth\Support\Facades\Create;
+use Astaroth\VkUtils\Builders\Message;
+use Astaroth\VkUtils\Builders\Post;
 
-BuilderFacade::create(
-    (new \Astaroth\VkUtils\Builders\Message())
+Create::create(
+    (new Message())
         ->setPeerId(418618)
-        ->setMessage("приветик %@name")
+        ->setMessage("приветик %@name"),
+        
+     (new Post())
+        ->setMessage("Привет моим папищикам!")
 );
 
-```
-
-### Create post
-
-Фасад облегчающий создание постов
-```php
-use Astaroth\Support\Facades\Message\BuilderFacade;
-
-$photo = "https://sun9-56.userapi.com/impg/eWT80yOmtzyBYsYoWBRfK3uqcwqEQuYKRkEaBg/u2O02Ym1c6E.jpg?size=906x906&quality=96&sign=1dee09e1c58645b114dcb329817cf377&type=album";
-
-BuilderFacade::create(
-    (new \Astaroth\VkUtils\Builders\Post())
-        ->setPeerId(418618)
-        ->setMessage("Привет папищек!")
-        ->setAttachments(...UploaderFacade::upload(new Photo($photo)))
-);
 ```
 
 ### Create request
 
 Фасад облегчающий запросы к vk api
 ```php
-use Astaroth\Support\Facades\RequestFacade;
+use Astaroth\Support\Facades\Request;
 
-RequestFacade::request("users.get", ["user_ids" => 418618, "fields" => "sex"], "token");
+Request::request("users.get", ["user_ids" => 418618, "fields" => "sex"], "token");
 ```
 
 ### Create attachments
 
 Фасад облегчающий загрузку вложений
 ```php
-use Astaroth\Support\Facades\UploaderFacade;
+use Astaroth\Support\Facades\Upload;
 use Astaroth\VkUtils\Builders\Attachments\Message\PhotoMessages;
 
-UploaderFacade::upload(
+Upload::attachments(
     new PhotoMessages("path"),
     new PhotoMessages("path"),
     new PhotoMessages("path"),
