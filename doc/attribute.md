@@ -187,8 +187,6 @@ class Foo
 ```
 
 ### State
-//todo реализовать
-
 Указывается как для метода, так и для класса\
 Доступ к классу\вызов метода если в сессии есть это состояние\n
 
@@ -196,13 +194,14 @@ class Foo
 use Astaroth\Attribute\State;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\Message as Message;
 
 #[Conversation(Conversation::ALL)]
 #[MessageNew]
-#[State(/* не реализовано */)]
+#[State("buy")]
 class Foo
 {
-    #[State(/* не реализовано */)]
+    #[Message("носки", Message::CONTAINS)]
     public function method(Data $data){//...}
 }
 ```
