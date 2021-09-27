@@ -33,10 +33,8 @@ composer create-project labile/astaroth-framework bot
 
 > Платформа - `Linux`\
 > Версия `PHP` - `>=8`\
-> Расширения: `ext-pcntl`, `ext-posix`, `mbstring`\
-> Веб сервер callback:\
-> for debug `composer serve` (php -S x.x.x.x)\
-> nginx, apache
+> Расширения: `ext-curl`, `ext-pcntl`, `ext-posix`, `mbstring`\
+> Веб сервер для callback: `nginx`, `apache`
 
 ## Env
 
