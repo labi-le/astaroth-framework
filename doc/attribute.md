@@ -8,6 +8,7 @@ ___
 2. Список аттрибутов
     1. Событийные
         + [MessageNew](#MessageNew)
+            + [Action](#Action)
         + [MessageEvent](#MessageEvent)
 
     2. Пользовательские
@@ -35,6 +36,27 @@ class HelloWorld
     //...
 }
 ```
+
+### Action
+
+Указывается для метода\
+Эксклюзивно только для message_new события
+
+Необходим для обработки событий которые происходят в беседах
+```php
+use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Commands\BaseCommands;
+
+#[MessageNew]
+class HelloWorld extends BaseCommands
+{
+    #[Action(Action::CHAT_TITLE_UPDATE)]
+    public function titleUpdate(Data $data): void
+    {
+        $this->message($data->getPeerId(), "Классное название");
+    }}
+```
+
 
 ### MessageEvent
 
