@@ -21,6 +21,7 @@ services:
         - db_volume:/data/db
 
   app:
+    restart: always
     container_name: app
     build:
       context: ../
