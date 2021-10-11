@@ -85,7 +85,7 @@ $videoStorage = (new VideoStorage)
     ->setTitle("beer")
     ->setDescription("I drink beer and walk around St. Petersburg");
     
-$entity->persist($videoStorage)''
+$entity->persist($videoStorage);
 $entity->flush();
 ```
 

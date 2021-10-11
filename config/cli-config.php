@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * needed to generate models
  * you have to change it to fit your needs
