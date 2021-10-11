@@ -185,7 +185,7 @@ class Foo
     #[Payload(["button" => 12])]
     #[Payload(["button" => ["user_id" => 418618]])]
     #[Payload(["button" => ["user_id" => 418618]], Payload::KEY_EXISTS)]
-    public function method(Data $data){//...}
+    public function method(Data $data){}
 }
 
 ```
@@ -228,6 +228,6 @@ use Astaroth\Attribute\Message as Message;
 class Foo
 {
     #[Message("носки", Message::CONTAINS)]
-    public function method(Data $data){//...}
+    public function method(Data $data){}
 }
 ```
