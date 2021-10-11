@@ -14,13 +14,10 @@ use Astaroth\Support\Facades\Create;
 #[MessageNew]
 class Example
 {
-    /**
-     * @throws \Throwable
-     */
     #[Message("привет")]
-    public function hello(Data $data, Create $create): void
+    public function hello(Data $data): void
     {
-        $create(
+        Create::new(
             (new \Astaroth\VkUtils\Builders\Message())
                 ->setPeerId($data->getPeerId())
                 ->setMessage("Ого! Привет %@name давно не виделись!")

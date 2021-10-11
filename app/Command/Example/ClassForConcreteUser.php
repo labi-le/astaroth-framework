@@ -14,7 +14,7 @@ use Astaroth\Support\Facades\Create;
 /**
  * Class ClassForConcreteUser
  * Этот класс будет доступен только для id418618
- * @package App\Command
+ * @package app\Command
  */
 #[Conversation(Conversation::PERSONAL_DIALOG, 418618)]
 #[MessageNew]

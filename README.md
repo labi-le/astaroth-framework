@@ -15,9 +15,8 @@ ___
 1. Конфигурация
     + [Установка](#Installation)
     + [Требования](#Requirement)
-    + [Содержание env](#Env)
 2. Примеры и документация
-    + [Примеры](App/Command/Example)
+    + [Примеры](app/Command/Example)
     + [Документация по аттрибутам](doc/attribute.md)
     + [Документация по фасадам](doc/facade.md)
 
@@ -35,45 +34,3 @@ composer create-project labile/astaroth-framework bot
 > Версия `PHP` - `>=8`\
 > Расширения: `ext-curl`, `ext-pcntl`, `ext-posix`, `mbstring`\
 > Веб сервер для callback: `nginx`, `apache`
-
-## Env
-
-```dotenv
-######################## System section ########################
-# тип работы бота. Возможны только два типа - CALLBACK, LONGPOLL
-TYPE = CALLBACK
-# бросать ошибки в лицо, либо скрывать их. yes or no
-DEBUG = yes
-# обрабатывать ли повторные запросы от вк (callback). yes or no
-HANDLE_REPEATED_REQUESTS = no
-#Where to save session and queue files?
-#Default sys_get_temp_dir()
-CACHE_PATH = cache
-# Количество параллельных действий
-# Used by Create, Upload Facades
-# Default 0
-# будет полезно для longpoll
-COUNT_PARALLEL_OPERATIONS = 3
-
-# Базовый неймпспейс приложения
-APP_NAMESPACE = App\Command
-# Базовый неймпспейс сущностей (doctrine)
-ENTITY_NAMESPACE = App\Entity
-
-######################## VK Section ########################
-# access_token сообщества
-ACCESS_TOKEN = swusjkbqnodwnpwdmwqpmd902q0nq2dqnpmxmslxssawjiowjwdhw8qd7dw8dgqidbw
-# версия vk api
-API_VERSION = 5.131
-# строка, которую должен вернуть сервер для события confirmation
-CONFIRMATION_KEY = sxo1kij9
-# произвольная строка, которая будет передаваться с каждым запросом (необязательный параметр)
-SECRET_KEY = asdwi9d90dw9dwudja
-
-######################## Database section ########################
-DATABASE_DRIVER = pdo_mysql
-DATABASE_HOST = 127.0.0.1
-DATABASE_NAME = example
-DATABASE_USER = example
-DATABASE_PASSWORD = veryStrongPassword
-```
