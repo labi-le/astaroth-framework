@@ -17,7 +17,7 @@ require_once "vendor/autoload.php";
 //Configuration::set(type: \Astaroth\Foundation\Application::PRODUCTION);
 $configuration = Configuration::set(dirname(__DIR__));
 
-//$config = Setup::createAnnotationMetadataConfiguration([getenv("ENTITY_NAMESPACE")]);
+//$config = Setup::createAnnotationMetadataConfiguration([getenv("ENTITY_PATH")]);
 $doctrineConfig = Setup::createAnnotationMetadataConfiguration([$configuration->getEntityPath()], true);
 
 //$connection =
