@@ -18,7 +18,7 @@ require_once "vendor/autoload.php";
 $configuration = Configuration::set(dirname(__DIR__));
 
 //$config = Setup::createAnnotationMetadataConfiguration([getenv("ENTITY_NAMESPACE")]);
-$doctrineConfig = Setup::createAnnotationMetadataConfiguration([$configuration->getEntityNamespace()], true);
+$doctrineConfig = Setup::createAnnotationMetadataConfiguration([$configuration->getEntityPath()], true);
 
 //$connection =
 //    [
