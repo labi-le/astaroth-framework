@@ -16,10 +16,6 @@ use Astaroth\VkUtils\Builders\Attachments\Photo;
 #[MessageNew]
 class Attachments extends BaseCommands
 {
-    /**
-     * @throws \Exception
-     * @throws \Throwable
-     */
     #[Message("котика")]
     public function cat(Data $data, Upload $upload): void
     {
