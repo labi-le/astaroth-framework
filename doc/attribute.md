@@ -19,6 +19,8 @@ ___
         - [Payload](#Payload)
         - [ClientInfo](#ClientInfo)
         - [State](#State)
+        - [Description](#Description)
+        - [Debug](#Debug)
 
 ### MessageNew
 
@@ -40,6 +42,7 @@ class HelloWorld
 Эксклюзивно только для message_new события
 
 Необходим для обработки событий которые происходят в беседах
+
 ```php
 use Astaroth\Attribute\Event\MessageNew;
 use Astaroth\Commands\BaseCommands;
@@ -53,7 +56,6 @@ class HelloWorld extends BaseCommands
         $this->message($data->getPeerId(), "Классное название");
     }}
 ```
-
 
 ### MessageEvent
 
@@ -231,3 +233,54 @@ class Foo
     public function method(Data $data){}
 }
 ```
+
+### Description
+
+Указывается как для метода, так и для класса\
+Описывает свойство класса или аттрибута
+
+```php
+use Astaroth\Attribute\Description;
+use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\Message as Message;
+
+#[Conversation(Conversation::ALL)]
+#[MessageNew]
+#[Description("описание для класса")]
+class Foo
+{
+    #[Message("носки", Message::CONTAINS)]
+    #[Description("описание метода\команды")]
+    public function method(Data $data, Description $description)
+    {
+        $description->getDescription() //описание метода\команды
+    }
+}
+
+```
+### Debug
+
+Указывается как для метода\
+Выполняет данный метод при любом условии\
+Если указать в параметрах, то можно получить полезные данные для дебага
+
+```php
+use Astaroth\Attribute\Debug;
+use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\Message as Message;
+
+#[Conversation(Conversation::ALL)]
+#[MessageNew]
+class Foo
+{
+    #[Message("носки", Message::CONTAINS)]
+    #[Debug]
+    public function method(Data $data, Debug $debug)
+    {
+        $debug->getResult() //mixed
+    }
+}
+```
+
