@@ -8,8 +8,8 @@ use Astaroth\Attribute\Attachment;
 use Astaroth\Attribute\Conversation;
 use Astaroth\Attribute\Event\MessageNew;
 use Astaroth\Attribute\Message;
+use Astaroth\Commands\BaseCommands;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Support\Facades\Create;
 
 /**
  * Class ClassForConcreteUser
@@ -18,31 +18,17 @@ use Astaroth\Support\Facades\Create;
  */
 #[Conversation(Conversation::PERSONAL_DIALOG, 418618)]
 #[MessageNew]
-class ClassForConcreteUser
+class ClassForConcreteUser extends BaseCommands
 {
-    /**
-     * @throws \Throwable
-     */
     #[Message("привет")]
-    public function method(Data $data, Create $create): void
+    public function method(Data $data): void
     {
-        $create(
-            (new \Astaroth\VkUtils\Builders\Message())
-                ->setPeerId($data->getPeerId())
-                ->setMessage("Ого! Привет давно не виделись!")
-        );
+        $this->message($data->getPeerId(), "Ого! Привет давно не виделись!");
     }
 
-    /**
-     * @throws \Throwable
-     */
     #[Attachment(Attachment::PHOTO)]
-    public function photoAction(Data $data, Create $create): void
+    public function photoAction(Data $data): void
     {
-        $create(
-            (new \Astaroth\VkUtils\Builders\Message())
-                ->setPeerId($data->getPeerId())
-                ->setMessage("Красотища!")
-        );
+        $this->message($data->getPeerId(), "Красотища!");
     }
 }
