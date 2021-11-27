@@ -279,7 +279,7 @@ class Foo
     #[Debug]
     public function method(Data $data, Debug $debug)
     {
-        $debug->getResult() //mixed
+        $debug->getResult() //описание метода\команды
     }
 }
 ```
