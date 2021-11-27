@@ -129,7 +129,9 @@ use Astaroth\DataFetcher\Events\MessageNew as Data;
 class Bar
 {
     #[MessageRegex('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i')]
-    public function method(Data $data){//...}
+    public function method(Data $data, MessageRegex $regex){
+        $videoId = $regex[0];
+    }
 }
 ```
 
