@@ -1,0 +1,323 @@
+POST 0.0.0.0:8000
+Content-Type: application/json
+
+{
+  "type": "message_new",
+  "object": {
+    "message": {
+      "date": 1639052951,
+      "from_id": 259166248,
+      "id": 0,
+      "out": 0,
+      "peer_id": 2000000005,
+      "text": "",
+      "conversation_message_id": 30187,
+      "fwd_messages": [],
+      "important": false,
+      "random_id": 0,
+      "attachments": [
+        {
+          "type": "photo",
+          "photo": {
+            "album_id": -3,
+            "date": 1639052898,
+            "id": 457284704,
+            "owner_id": 259166248,
+            "access_key": "144c41c75ae5aef5dd",
+            "sizes": [
+              {
+                "height": 40,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=75x40&quality=96&sign=42c48b0d1d9cf8f74631f305791e3b2c&c_uniq_tag=rK6g29RlInbWbY8p1VEA1TBWUd_e5fjqEIeGBMxxy7U&type=album",
+                "type": "s",
+                "width": 75
+              },
+              {
+                "height": 69,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=130x69&quality=96&sign=22afd27e7f7b6e06637ec0035faf3f01&c_uniq_tag=_tk37lNhXj8AHRniO1w5cQMWkDqlbsFvKkp2eD1QS8U&type=album",
+                "type": "m",
+                "width": 130
+              },
+              {
+                "height": 157,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=294x157&quality=96&sign=3f6aec4ddb1733cffeffff6859170bb5&c_uniq_tag=YYckzWuMkStchcqeBrjmxdVzvgQRoW3YdRBWBM51Nlk&type=album",
+                "type": "x",
+                "width": 294
+              },
+              {
+                "height": 87,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=130x87&quality=96&crop=29,0,235,157&sign=25d917e34439456b2fb30aa40bd3f95b&c_uniq_tag=W5I5I8QhldQFkKMs4wP0AtiHVn5yj3ThWBfraV9ljgQ&type=album",
+                "type": "o",
+                "width": 130
+              },
+              {
+                "height": 133,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=200x133&quality=96&crop=29,0,236,157&sign=200d17cd853c4f769c9b437ba9d35a3e&c_uniq_tag=4K_1QnNn9JcMqzmXqREvXXxw310IxfMo1yhzbCu5-xU&type=album",
+                "type": "p",
+                "width": 200
+              },
+              {
+                "height": 157,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=294x157&quality=96&sign=3f6aec4ddb1733cffeffff6859170bb5&c_uniq_tag=YYckzWuMkStchcqeBrjmxdVzvgQRoW3YdRBWBM51Nlk&type=album",
+                "type": "q",
+                "width": 294
+              },
+              {
+                "height": 157,
+                "url": "https://sun9-37.userapi.com/impg/Ia3Dw9j3nK3GX3XBB1eSQBtg9ntarZoUmZY5UQ/-WgL8USq2Hc.jpg?size=294x157&quality=96&sign=3f6aec4ddb1733cffeffff6859170bb5&c_uniq_tag=YYckzWuMkStchcqeBrjmxdVzvgQRoW3YdRBWBM51Nlk&type=album",
+                "type": "r",
+                "width": 294
+              }
+            ],
+            "text": "",
+            "has_tags": false
+          }
+        },
+        {
+          "type": "doc",
+          "doc": {
+            "id": 623308304,
+            "owner_id": 259166248,
+            "title": "милый котик барахтается",
+            "size": 22526106,
+            "ext": "gif",
+            "date": 1638741372,
+            "type": 3,
+            "url": "https://vk.com/doc259166248_623308304?hash=36e7893be49aa8d195&dl=GA:1639052951:500b0d23e8d01df6a2&api=1&no_preview=1",
+            "preview": {
+              "photo": {
+                "sizes": [
+                  {
+                    "src": "https://sun9-78.userapi.com/c520036/u490323329/d20/-3/m_f4471ba2a9.jpg",
+                    "width": 130,
+                    "height": 73,
+                    "type": "m"
+                  },
+                  {
+                    "src": "https://sun9-13.userapi.com/c520036/u490323329/d20/-3/s_f4471ba2a9.jpg",
+                    "width": 100,
+                    "height": 57,
+                    "type": "s"
+                  },
+                  {
+                    "src": "https://sun9-55.userapi.com/c520036/u490323329/d20/-3/x_f4471ba2a9.jpg",
+                    "width": 604,
+                    "height": 339,
+                    "type": "x"
+                  },
+                  {
+                    "src": "https://sun9-40.userapi.com/c520036/u490323329/d20/-3/y_f4471ba2a9.jpg",
+                    "width": 807,
+                    "height": 452,
+                    "type": "y"
+                  },
+                  {
+                    "src": "https://sun9-27.userapi.com/c520036/u490323329/d20/-3/o_f4471ba2a9.jpg",
+                    "width": 728,
+                    "height": 408,
+                    "type": "o"
+                  },
+                  {
+                    "src": "https://sun9-40.userapi.com/impf/c520036/u490323329/d20/-3/y_f4471ba2a9.jpg?size=288x161&quality=90&sign=daff3371cf8d8935ca4b63b21fa28bfc&c_uniq_tag=mYmIMSv0xYmjzuykHdJKAMdgRezarBl5TlhQLeNtnxg",
+                    "width": 288,
+                    "height": 161,
+                    "type": "i"
+                  },
+                  {
+                    "src": "https://sun9-40.userapi.com/impf/c520036/u490323329/d20/-3/y_f4471ba2a9.jpg?size=192x108&quality=90&sign=82c5ad1f88d19046732679946a088b13&c_uniq_tag=7y2FWfnQAxXU0QBfxN8H3RLXaiqnFIQGZ6JTNDEJWCg",
+                    "width": 192,
+                    "height": 108,
+                    "type": "d"
+                  }
+                ]
+              },
+              "video": {
+                "src": "https://vk.com/doc259166248_623308304?hash=36e7893be49aa8d195&dl=GA:1639052951:500b0d23e8d01df6a2&api=1&mp4=1",
+                "width": 728,
+                "height": 408,
+                "file_size": 3108311
+              }
+            },
+            "access_key": "f5fe21e61acd5e81a9"
+          }
+        },
+        {
+          "type": "video",
+          "video": {
+            "access_key": "117186180daae6b8ee",
+            "can_add": 1,
+            "comments": 0,
+            "date": 1632162439,
+            "description": "",
+            "duration": 26,
+            "image": [
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_s",
+                "width": 130,
+                "height": 96,
+                "with_padding": 1
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_m",
+                "width": 160,
+                "height": 120,
+                "with_padding": 1
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_l",
+                "width": 320,
+                "height": 240,
+                "with_padding": 1
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_x",
+                "width": 800,
+                "height": 450,
+                "with_padding": 1
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_w",
+                "width": 764,
+                "height": 720
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_t",
+                "width": 320,
+                "height": 302
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc&fn=vid_u",
+                "width": 720,
+                "height": 679
+              }
+            ],
+            "first_frame": [
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=32&tkn=KFoPtXAaLzXF12uQhhC8MOZLvQc",
+                "width": 720,
+                "height": 679
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=33&tkn=p4X1Eg-tAp9zDc0pM8tVU77K__w",
+                "width": 480,
+                "height": 452
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=34&tkn=UTSoPayBZVQKNWtOD1B0Y3L1Mks",
+                "width": 240,
+                "height": 226
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=35&tkn=lNG-jqfFeOM8iwErpcmdVcWcn9E",
+                "width": 128,
+                "height": 121
+              },
+              {
+                "url": "https://i.mycdn.me/getVideoPreview?id=1707579607660&idx=0&type=39&tkn=jV_iEOqI8CmAyReMv-pn60ay9lc",
+                "width": 1280,
+                "height": 1206
+              }
+            ],
+            "width": 382,
+            "height": 360,
+            "id": 456241566,
+            "owner_id": -197154211,
+            "title": "fan",
+            "track_code": "video_3192ab58r29Gh29yb0TYMVLNOIPsDXQc6KlwORCghK7ISdEtWJSte2u2VkVecewDY_xnt9k",
+            "type": "video",
+            "views": 4865
+          }
+        },
+        {
+          "type": "audio",
+          "audio": {
+            "artist": "Big Smoke",
+            "id": 456240587,
+            "owner_id": 259166248,
+            "title": "Two number 9s, a number 9 large, a number 6 with extra dip, a number 7, two number 45s, one with cheese, and a large soda",
+            "duration": 17,
+            "is_explicit": false,
+            "is_focus_track": false,
+            "track_code": "24a8bcc9GzrSvqnudGVBOMkjQGZc29NExg1_F-BT",
+            "url": "https://cs9-10v4.vkuseraudio.net/s/v1/acmp/499gnvW_V7eVLH5140Xb6J4Hhu_k6bGV1xwalykYDMUl6W1SiouUoeO5e9Fwq2-gXG-ecu6s2JTSKraSZmQu4aVCyewOEtZi0z0-nglmHdZUvyEV5LYF39LWfJV_gcSXWvVCDPvNWj2eqEbJjwegUU9rmIUKUgTaZnJZQ6aXajph.mp3",
+            "date": 1635510099,
+            "lyrics_id": 441862984,
+            "genre_id": 18,
+            "short_videos_allowed": false,
+            "stories_allowed": false,
+            "stories_cover_allowed": false
+          }
+        },
+        {
+          "type": "poll",
+          "poll": {
+            "multiple": false,
+            "end_date": 0,
+            "closed": false,
+            "is_board": false,
+            "can_edit": false,
+            "can_vote": false,
+            "can_report": false,
+            "can_share": false,
+            "created": 1639052951,
+            "id": 665563372,
+            "owner_id": 259166248,
+            "question": "asaas",
+            "votes": 0,
+            "disable_unvote": false,
+            "anonymous": false,
+            "answer_ids": [],
+            "embed_hash": "665563372_29c923f0edfd6f131a",
+            "answers": [
+              {
+                "id": 1905503917,
+                "rate": 0,
+                "text": "sasaas",
+                "votes": 0
+              },
+              {
+                "id": 1905503918,
+                "rate": 0,
+                "text": "saassaa",
+                "votes": 0
+              }
+            ],
+            "author_id": 259166248
+          }
+        }
+      ],
+      "geo": {
+        "type": "point",
+        "coordinates": {
+          "latitude": 0.00001,
+          "longitude": 0.000003
+        },
+        "place": {
+          "country": "Атлантический океан",
+          "city": "Нью-Йорк",
+          "title": "Нью-Йорк, Атлантический океан"
+        }
+      },
+      "is_hidden": false
+    },
+    "client_info": {
+      "button_actions": [
+        "text",
+        "vkpay",
+        "open_app",
+        "location",
+        "open_link",
+        "callback",
+        "intent_subscribe",
+        "intent_unsubscribe"
+      ],
+      "keyboard": true,
+      "inline_keyboard": true,
+      "carousel": true,
+      "lang_id": 0
+    }
+  },
+  "group_id": 190405359,
+  "event_id": "95bc7fb9b0a2b645ada3c4b88b043eef8f8738df"
+}
+
+<> 2021-12-09T152341.200.json
