@@ -21,14 +21,14 @@ use Astaroth\DataFetcher\Events\MessageNew as Data;
 class ClassForConcreteUser extends BaseCommands
 {
     #[Message("привет")]
-    public function method(Data $data): void
+    public function method(): void
     {
-        $this->message($data->getPeerId(), "Ого! Привет давно не виделись!");
+        $this->message("Ого! Привет давно не виделись!")->send();
     }
 
     #[Attachment(Attachment::PHOTO)]
-    public function photoAction(Data $data): void
+    public function photoAction(): void
     {
-        $this->message($data->getPeerId(), "Красотища!");
+        $this->message("Красотища!")->send();
     }
 }
