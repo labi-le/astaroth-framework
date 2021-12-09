@@ -27,7 +27,7 @@ ___
 ### Installation
 
 ```
-composer create-project labile/astaroth-framework bot
+composer create-project labile/astaroth-framework:dev-rolling bot
 ```
 
 ### Requirement
