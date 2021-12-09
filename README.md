@@ -6,7 +6,9 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/labi-le/astaroth-core/blob/main/LICENSE)
 [![Code Size](https://img.shields.io/github/languages/code-size/labi-le/astaroth-core)](https://github.com/labi-le/astaroth-core)
 
-Личный фреймворк для создания ботов
+### Фреймворк для создания ботов
+
+#### Это роллинг версия фреймворка! Будь готов к неожиданностям!
 
 ___
 
