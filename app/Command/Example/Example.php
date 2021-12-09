@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Command\Example;
 
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\Event\MessageNew;
-use Astaroth\Attribute\Message;
+use Astaroth\Attribute\ClassAttribute\Conversation;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Attribute\Method\Message;
 use Astaroth\Commands\BaseCommands;
+use Astaroth\Foundation\Enums\Events;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Support\Facades\Create;
 
 #[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Example extends BaseCommands
 {
     #[Message("привет")]

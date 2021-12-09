@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Command\Example;
 
-use Astaroth\Attribute\Attachment;
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\Event\MessageNew;
-use Astaroth\Attribute\Message;
+use Astaroth\Attribute\ClassAttribute\Conversation;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Attribute\Method\Attachment;
+use Astaroth\Attribute\Method\Message;
 use Astaroth\Commands\BaseCommands;
-use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Foundation\Enums\Events;
 
 /**
  * Class ClassForConcreteUser
@@ -17,7 +17,7 @@ use Astaroth\DataFetcher\Events\MessageNew as Data;
  * @package app\Command
  */
 #[Conversation(Conversation::PERSONAL_DIALOG, 418618)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class ClassForConcreteUser extends BaseCommands
 {
     #[Message("привет")]
