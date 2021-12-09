@@ -1,0 +1,42 @@
+POST 0.0.0.0:8000
+Content-Type: application/json
+
+{
+  "type": "message_new",
+  "object": {
+    "message": {
+      "date": 1639051955,
+      "from_id": 1,
+      "id": 0,
+      "out": 0,
+      "peer_id": 2000000001,
+      "text": "test",
+      "conversation_message_id": 30185,
+      "fwd_messages": [],
+      "important": false,
+      "random_id": 0,
+      "attachments": [],
+      "is_hidden": false
+    },
+    "client_info": {
+      "button_actions": [
+        "text",
+        "vkpay",
+        "open_app",
+        "location",
+        "open_link",
+        "callback",
+        "intent_subscribe",
+        "intent_unsubscribe"
+      ],
+      "keyboard": true,
+      "inline_keyboard": true,
+      "carousel": true,
+      "lang_id": 0
+    }
+  },
+  "group_id": 190405359,
+  "event_id": "0872c519ab25f5548ac6db7451eea8ae5ecc7627"
+}
+
+<> 2021-12-09T152341.200.json
