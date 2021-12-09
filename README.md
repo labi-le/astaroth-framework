@@ -8,8 +8,6 @@
 
 ### Фреймворк для создания ботов
 
-#### Это роллинг версия фреймворка! Будь готов к неожиданностям!
-
 ___
 
 ## Содержание
@@ -27,7 +25,7 @@ ___
 ### Installation
 
 ```
-composer create-project labile/astaroth-framework:dev-rolling bot
+composer create-project labile/astaroth-framework bot
 ```
 
 ### Requirement
