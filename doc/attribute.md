@@ -6,13 +6,12 @@ ___
 
 1. [Что такое аттрибуты?](https://www.php.net/manual/ru/language.attributes.overview.php)
 2. Список аттрибутов
-    1. Событийные
-        + [MessageNew](#MessageNew)
+    1. Для классов
+        + [Event](#Event)
             + [Action](#Action)
-        + [MessageEvent](#MessageEvent)
+        + [Conversation](#Conversation)
 
-    2. Пользовательские
-        - [Conversation](#Conversation)
+    2. Для методов
         - [Message](#Message)
         - [MessageRegex](#MessageRegex)
         - [Attachment](#Attachment)
@@ -22,14 +21,15 @@ ___
         - [Description](#Description)
         - [Debug](#Debug)
 
-### MessageNew
+### Event
 
-Указывается вначале класса, является событием
+Указывается вначале класса, является событием, которое присылает вконтакте
 
 ```php
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class HelloWorld
 {
     //...
@@ -44,10 +44,12 @@ class HelloWorld
 Необходим для обработки событий которые происходят в беседах
 
 ```php
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 use Astaroth\Commands\BaseCommands;
+use Astaroth\Attribute\Method\Action;
 
-#[MessageNew]
+#[Event(Events::MESSAGE_EVENT)]
 class HelloWorld extends BaseCommands
 {
     #[Action(Action::CHAT_TITLE_UPDATE)]
@@ -57,19 +59,6 @@ class HelloWorld extends BaseCommands
     }}
 ```
 
-### MessageEvent
-
-Указывается вначале класса, является событием
-
-```php
-use Astaroth\Attribute\Event\MessageEvent;
-
-#[MessageEvent]
-class Event
-{
-    //...
-}
-```
 
 ### Conversation
 
@@ -78,11 +67,12 @@ class Event
 Можно указать id объектов для которых будут доступны методы
 
 ```php
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\ClassAttribute\Conversation;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
+#[Event(Events::MESSAGE_EVENT)]
 #[Conversation(Conversation::PERSONAL_DIALOG, 418618, 1234)]
-#[MessageNew]
 class Foo
 {
     //...
@@ -96,13 +86,12 @@ class Foo
 Можно указать тип валидации
 
 ```php
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\Message;
-use Astaroth\Attribute\Event\MessageNew;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
+use Astaroth\Attribute\Method\Message;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_EVENT)]
 class Bar
 {
     #[Message("содержится ли подстрока в другой подстроке", Message::CONTAINS)]
@@ -119,13 +108,12 @@ class Bar
 То же самое что и аттрибут выше, но поиск по регулярным выражениям
 
 ```php
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\MessageRegex;
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\Method\MessageRegex;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Bar
 {
     #[MessageRegex('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i')]
@@ -142,13 +130,12 @@ class Bar
 Можно указать количество вложений для определённого аттрибута
 
 ```php
-use Astaroth\Attribute\Conversation;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Attachment;
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\Method\Attachment;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Foo
 {
     #[Attachment(Attachment::AUDIO)]
@@ -177,13 +164,12 @@ Payload::CONTAINS // проверка на схожесть массивов
 ```
 
 ```php
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\Payload;
+use Astaroth\Attribute\Method\Payload;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Foo
 {
     #[Payload(["button" => 12])]
@@ -201,13 +187,12 @@ class Foo
 `Для button_actions указывается массив`
 
 ```php
-use Astaroth\Attribute\Conversation;
-use Astaroth\Attribute\ClientInfo;
+use Astaroth\Attribute\Method\ClientInfo;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Event\MessageNew;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Foo
 {
     #[ClientInfo([ClientInfo::CALLBACK, ClientInfo::VKPAY], keyboard: true, inline_keyboard: true)]
@@ -221,18 +206,17 @@ class Foo
 Доступ к классу\вызов метода если в сессии есть это состояние\n
 
 ```php
-use Astaroth\Attribute\State;
-use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Event\MessageNew;
-use Astaroth\Attribute\Message as Message;
+use Astaroth\Attribute\General\State;
+use Astaroth\Attribute\Method\Message;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 #[State("buy")]
 class Foo
 {
     #[Message("носки", Message::CONTAINS)]
-    public function method(Data $data){}
+    public function method(){}
 }
 ```
 
@@ -242,19 +226,18 @@ class Foo
 Описывает свойство класса или аттрибута
 
 ```php
-use Astaroth\Attribute\Description;
-use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Event\MessageNew;
-use Astaroth\Attribute\Message as Message;
+use Astaroth\Attribute\General\Description;
+use Astaroth\Attribute\Method\Message;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 #[Description("описание для класса")]
 class Foo
 {
     #[Message("носки", Message::CONTAINS)]
     #[Description("описание метода\команды")]
-    public function method(Data $data, Description $description)
+    public function method(Description $description)
     {
         $description->getDescription() //описание метода\команды
     }
@@ -268,18 +251,17 @@ class Foo
 Если указать в параметрах, то можно получить полезные данные для дебага
 
 ```php
-use Astaroth\Attribute\Debug;
-use Astaroth\DataFetcher\Events\MessageNew as Data;
-use Astaroth\Attribute\Event\MessageNew;
-use Astaroth\Attribute\Message as Message;
+use Astaroth\Attribute\Method\Debug;
+use Astaroth\Attribute\Method\Message;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
-#[MessageNew]
+#[Event(Events::MESSAGE_NEW)]
 class Foo
 {
     #[Message("носки", Message::CONTAINS)]
     #[Debug]
-    public function method(Data $data, Debug $debug)
+    public function method(Debug $debug)
     {
         $debug->getResult() //описание метода\команды
     }
