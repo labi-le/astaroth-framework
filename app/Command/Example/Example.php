@@ -18,7 +18,7 @@ class Example extends BaseCommands
     #[Message("привет")]
     public function hello(Data $data): void
     {
-        $this->message($data->getPeerId(), "Ого! Привет %@name давно не виделись!");
+        $this->message("Ого! Привет %@name давно не виделись!")->send();
 
 //        или так
 //        Create::new(
