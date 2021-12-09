@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
 
     "require": {
-        "labile/astaroth-core": "dev-rolling"
+        "labile/astaroth-core": ">=2.8"
     },
 
     "autoload": {
