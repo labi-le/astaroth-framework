@@ -17,16 +17,16 @@ use Astaroth\VkUtils\Builders\Attachments\Photo;
 class Attachments extends BaseCommands
 {
     #[Message("котика")]
-    public function cat(Data $data, Upload $upload): void
+    public function cat(): void
     {
         $api = static fn() => $this->catApi();
 
         $twoCats = [
-            new Photo($api()),
-            new Photo($api()),
+            $api(),
+            $api(),
         ];
 
-        $this->message($data->getPeerId(), attachment: $upload(...$twoCats));
+        $this->message("meow")->addImg($twoCats)->send();
     }
 
     private function catApi(): ?string
