@@ -10,6 +10,9 @@ up-dev:
 up-container:
 	docker-compose -f docker/docker-compose.yml up
 
+down-container:
+	docker-compose -f docker/docker-compose.yml stop
+
 forward:
 	ssh -R 80:$(SERVER):$(PORT) nokey@localhost.run
 
