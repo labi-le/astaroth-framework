@@ -11,7 +11,7 @@ up-container:
 	docker-compose -f docker/docker-compose.yml up
 
 forward:
-	lt --port $(PORT) --subdomain $(DEV_DOMAIN) --print-requests
+	ssh -R 80:$(SERVER):$(PORT) nokey@localhost.run
 
 gen-entity:
 	$(DOCTRINE_BIN_PATH) orm:schema-tool:update --force
