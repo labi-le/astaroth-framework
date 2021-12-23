@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Astaroth\Foundation\Application;
 
-$app = new Application();
-$app->run(dirname(__DIR__));
+$app = new Application(dirname(__DIR__));
+$app->run();
 
 //if prod set
-// $app->run(type: Application::PRODUCTION);
+// $$app = new Application(type: Application::PRODUCTION);
