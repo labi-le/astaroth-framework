@@ -23,6 +23,9 @@ services:
   app:
     restart: always
     container_name: app
+    volumes:
+      - ../:/app/
+    working_dir: /app/
     build:
       context: ../
       dockerfile: docker/Dockerfile
