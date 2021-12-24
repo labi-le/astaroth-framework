@@ -12,6 +12,11 @@
     "minimum-stability": "stable",
 
     "require": {
+        "php": ">=8.1",
+        "ext-pcntl": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*",
+
         "labile/astaroth-core": "dev-rolling"
     },
 
