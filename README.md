@@ -32,6 +32,12 @@ composer create-project labile/astaroth-framework bot
 ### Requirement
 
 > Платформа - `Linux`\
-> Версия `PHP` - `>=8`\
-> Расширения: `ext-curl`, `ext-pcntl`, `ext-posix`, `mbstring`\
-> Веб сервер для callback: `nginx`, `apache`
+> Версия `PHP` - `>=8.1`
+
+> Обязательные расширения: `ext-mbstring`, `ext-curl`
+
+> Callback mode: Рекомендуемые веб - сервера: `nginx`
+
+> Longpoll mode: обязательные расширения: `ext-pcntl`, `ext-posix`
+
+``Рекомендую использовать связку longpoll + docker, докер файлы уже созданы, необходимо исправить некоторые моменты для своих нужд``
