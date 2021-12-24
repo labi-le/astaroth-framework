@@ -14,7 +14,7 @@
     "ext-pcntl": "*",
     "ext-curl": "*",
     "ext-mbstring": "*",
-    "labile/astaroth-core": "dev-rolling"
+    "labile/astaroth-core": ">=2.9"
   },
   "autoload": {
     "psr-4": {
@@ -26,7 +26,6 @@
       "Composer\\Config::disableProcessTimeout",
       "php -S 0.0.0.0:8000"
     ],
-
     "post-create-project-cmd": [
       "ln -sf vendor/bin/lilit lilit",
       "lilit make:env"
