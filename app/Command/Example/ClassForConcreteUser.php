@@ -9,14 +9,16 @@ use Astaroth\Attribute\ClassAttribute\Event;
 use Astaroth\Attribute\Method\Attachment;
 use Astaroth\Attribute\Method\Message;
 use Astaroth\Commands\BaseCommands;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\AttachmentEnum;
+use Astaroth\Enums\ConversationType;
+use Astaroth\Enums\Events;
 
 /**
  * Class ClassForConcreteUser
  * Этот класс будет доступен только для id418618
  * @package app\Command
  */
-#[Conversation(Conversation::PERSONAL_DIALOG, 418618)]
+#[Conversation(ConversationType::PERSONAL, 418618)]
 #[Event(Events::MESSAGE_NEW)]
 class ClassForConcreteUser extends BaseCommands
 {
@@ -26,7 +28,7 @@ class ClassForConcreteUser extends BaseCommands
         $this->message("Ого! Привет давно не виделись!")->send();
     }
 
-    #[Attachment(Attachment::PHOTO)]
+    #[Attachment(AttachmentEnum::PHOTO)]
     public function photoAction(): void
     {
         $this->message("Красотища!")->send();

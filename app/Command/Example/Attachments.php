@@ -8,9 +8,10 @@ use Astaroth\Attribute\ClassAttribute\Conversation;
 use Astaroth\Attribute\ClassAttribute\Event;
 use Astaroth\Attribute\Method\Message;
 use Astaroth\Commands\BaseCommands;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\ConversationType;
+use Astaroth\Enums\Events;
 
-#[Conversation(Conversation::ALL)]
+#[Conversation(ConversationType::ALL)]
 #[Event(Events::MESSAGE_NEW)]
 class Attachments extends BaseCommands
 {
