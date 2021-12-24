@@ -19,6 +19,7 @@ ___
     + [Примеры](app/Command/Example)
     + [Документация по аттрибутам](doc/attribute.md)
     + [Документация по фасадам](doc/facade.md)
+    + [Документация по Lilit](doc/lilit.md)
 
 ___
 

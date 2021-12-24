@@ -22,10 +22,6 @@
     }
   },
   "scripts": {
-    "serve": [
-      "Composer\\Config::disableProcessTimeout",
-      "php -S 0.0.0.0:8000"
-    ],
     "post-create-project-cmd": [
       "ln -sf vendor/bin/lilit lilit",
       "lilit make:env"

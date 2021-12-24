@@ -45,14 +45,15 @@ class HelloWorld
 
 ```php
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\ActionEnum;
 use Astaroth\Commands\BaseCommands;
 use Astaroth\Attribute\Method\Action;
 
 #[Event(Events::MESSAGE_EVENT)]
 class HelloWorld extends BaseCommands
 {
-    #[Action(Action::CHAT_TITLE_UPDATE)]
+    #[Action(ActionEnum::CHAT_TITLE_UPDATE)]
     public function titleUpdate(Data $data): void
     {
         $this->message($data->getPeerId(), "Классное название");
@@ -69,10 +70,11 @@ class HelloWorld extends BaseCommands
 ```php
 use Astaroth\Attribute\ClassAttribute\Conversation;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\ConversationType;
 
 #[Event(Events::MESSAGE_EVENT)]
-#[Conversation(Conversation::PERSONAL_DIALOG, 418618, 1234)]
+#[Conversation(ConversationType::PERSONAL, 418618, 1234)]
 class Foo
 {
     //...
@@ -88,16 +90,17 @@ class Foo
 ```php
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
 use Astaroth\Attribute\Method\Message;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\MessageValidation;
 
 #[Event(Events::MESSAGE_EVENT)]
 class Bar
 {
-    #[Message("содержится ли подстрока в другой подстроке", Message::CONTAINS)]
-    #[Message("заканчивается на", Message::END_AS)]
-    #[Message("начинается с", Message::START_AS)]
-    #[Message("похоже на", Message::SIMILAR_TO)]
+    #[Message("содержится ли подстрока в другой подстроке", MessageValidation::CONTAINS)]
+    #[Message("заканчивается на", MessageValidation::END_AS)]
+    #[Message("начинается с", MessageValidation::START_AS)]
+    #[Message("похоже на", MessageValidation::SIMILAR_TO)]
     #[Message("без валидации, сравнивает точь в точь")]
     public function method(Data $data){//...}
 }
@@ -111,7 +114,7 @@ class Bar
 use Astaroth\Attribute\Method\MessageRegex;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
 
 #[Event(Events::MESSAGE_NEW)]
 class Bar
@@ -133,18 +136,19 @@ class Bar
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\Method\Attachment;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\AttachmentEnum;
 
 #[Event(Events::MESSAGE_NEW)]
 class Foo
 {
-    #[Attachment(Attachment::AUDIO)]
-    #[Attachment(Attachment::AUDIO_MESSAGE)]
-    #[Attachment(Attachment::DOC)]
-    #[Attachment(Attachment::GRAFFITI)]
-    #[Attachment(Attachment::PHOTO, 2)]
-    #[Attachment(Attachment::STICKER)]
-    #[Attachment(Attachment::VIDEO)]
+    #[Attachment(AttachmentEnum::AUDIO)]
+    #[Attachment(AttachmentEnum::AUDIO_MESSAGE)]
+    #[Attachment(AttachmentEnum::DOC)]
+    #[Attachment(AttachmentEnum::GRAFFITI)]
+    #[Attachment(AttachmentEnum::PHOTO, 2)]
+    #[Attachment(AttachmentEnum::STICKER)]
+    #[Attachment(AttachmentEnum::VIDEO)]
     public function method(Data $data)
 }
 ```
@@ -158,23 +162,24 @@ class Foo
 Можно указать тип сравнения
 
 ```php
-Payload::STRICT //строгое сравнение "точь-в-точь"
-Payload::KEY_EXISTS // проверка на содержания ключей
-Payload::CONTAINS // проверка на схожесть массивов
+PayloadValidation::STRICT //строгое сравнение "точь-в-точь"
+PayloadValidation::KEY_EXISTS // проверка на содержания ключей
+PayloadValidation::CONTAINS // проверка на схожесть массивов
 ```
 
 ```php
 use Astaroth\Attribute\Method\Payload;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\PayloadValidation;
 
 #[Event(Events::MESSAGE_NEW)]
 class Foo
 {
     #[Payload(["button" => 12])]
     #[Payload(["button" => ["user_id" => 418618]])]
-    #[Payload(["button" => ["user_id" => 418618]], Payload::KEY_EXISTS)]
+    #[Payload(["button" => ["user_id" => 418618]], PayloadValidation::KEY_EXISTS)]
     public function method(Data $data){}
 }
 
@@ -190,12 +195,13 @@ class Foo
 use Astaroth\Attribute\Method\ClientInfo;
 use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\ClientInfoEnum;
 
 #[Event(Events::MESSAGE_NEW)]
 class Foo
 {
-    #[ClientInfo([ClientInfo::CALLBACK, ClientInfo::VKPAY], keyboard: true, inline_keyboard: true)]
+    #[ClientInfo([ClientInfoEnum::CALLBACK, ClientInfoEnum::VKPAY], keyboard: true, inline_keyboard: true)]
     public function method(Data $data){//...}
 }
 ```
@@ -209,13 +215,14 @@ class Foo
 use Astaroth\Attribute\General\State;
 use Astaroth\Attribute\Method\Message;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\MessageValidation;
 
 #[Event(Events::MESSAGE_NEW)]
 #[State("buy")]
 class Foo
 {
-    #[Message("носки", Message::CONTAINS)]
+    #[Message("носки", MessageValidation::CONTAINS)]
     public function method(){}
 }
 ```
@@ -229,13 +236,14 @@ class Foo
 use Astaroth\Attribute\General\Description;
 use Astaroth\Attribute\Method\Message;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\MessageValidation;
 
 #[Event(Events::MESSAGE_NEW)]
 #[Description("описание для класса")]
 class Foo
 {
-    #[Message("носки", Message::CONTAINS)]
+    #[Message("носки", MessageValidation::CONTAINS)]
     #[Description("описание метода\команды")]
     public function method(Description $description)
     {
@@ -254,12 +262,13 @@ class Foo
 use Astaroth\Attribute\Method\Debug;
 use Astaroth\Attribute\Method\Message;
 use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
+use Astaroth\Enums\Events;
+use Astaroth\Enums\MessageValidation;
 
 #[Event(Events::MESSAGE_NEW)]
 class Foo
 {
-    #[Message("носки", Message::CONTAINS)]
+    #[Message("носки", MessageValidation::CONTAINS)]
     #[Debug]
     public function method(Debug $debug)
     {
