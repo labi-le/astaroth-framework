@@ -1,24 +1,24 @@
-version: "3.3"
+version: "3.8"
 
-volumes:
-  db_volume:
+#volumes:
+#  db_volume:
 
 services:
-
-  db:
-    container_name: db
-    image: postgres:latest
-    restart: always
-    environment:
-      TZ: "Europe/Moscow"
-
-      POSTGRES_PASSWORD: "Ercdf6j72cUmYJfs4QNymkzQxtQvd2jcCjCzHdrkQK8KhEsteu8CYsewS9MvXXMADNK6eY4GXrYavyzKr5hned6RypWKq"
-      POSTGRES_USER: "app"
-
-    ports:
-        - "5432:5432"
-    volumes:
-        - db_volume:/data/db
+# Example: add pgsql;
+#  db:
+#    container_name: db
+#    image: postgres:latest
+#    restart: always
+#    environment:
+#      TZ: "Europe/Moscow"
+#
+#      POSTGRES_PASSWORD: "Ercdf6j72cUmYJfs4QNymkzQxtQvd2jcCjCzHdrkQK8KhEsteu8CYsewS9MvXXMADNK6eY4GXrYavyzKr5hned6RypWKq"
+#      POSTGRES_USER: "app"
+#
+#    ports:
+#        - "5432:5432"
+#    volumes:
+#        - db_volume:/data/db
 
   app:
     restart: always
