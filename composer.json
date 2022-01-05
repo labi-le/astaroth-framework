@@ -26,5 +26,10 @@
       "ln -sf vendor/bin/lilit lilit",
       "lilit make:env"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
   }
 }
