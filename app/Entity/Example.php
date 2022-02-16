@@ -10,10 +10,10 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
-/**
- * @Entity
- * @Table(name="example")
- */
+#[
+    Entity,
+    Table(name: 'example'),
+]
 class Example
 {
     /**
@@ -52,15 +52,13 @@ class Example
         return $this;
     }
 
-    /**
-     * @Id
-     * @Column(type="integer", unique=true, nullable=false)
-     * @GeneratedValue(strategy="AUTO")
-     */
+    #[
+        Id,
+        GeneratedValue(strategy: "AUTO"),
+        Column(type: "integer", unique: true, nullable: false),
+    ]
     private string $id;
 
-    /**
-     * @Column(type="string", nullable=true)
-     */
+    #[Column(type: 'string', nullable: true)]
     private ?string $title;
 }
