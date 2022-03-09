@@ -18,14 +18,14 @@ use Astaroth\Enums\Events;
  * Этот класс будет доступен только для id418618
  * @package app\Command
  */
-#[Conversation(ConversationType::PERSONAL, 418618)]
 #[Event(Events::MESSAGE_NEW)]
+#[Conversation(ConversationType::PERSONAL, 418618)]
 class ClassForConcreteUser extends BaseCommands
 {
     #[Message("привет")]
     public function method(): void
     {
-        $this->message("Ого! Привет давно не виделись!")->send();
+        $this->message("Ого! Привет labile aaaa не виделись!")->send();
     }
 
     #[Attachment(AttachmentEnum::PHOTO)]
