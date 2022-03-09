@@ -22,13 +22,14 @@
     }
   },
   "scripts": {
-    "serve": [
-      "Composer\\Config::disableProcessTimeout",
-      "php -S 0.0.0.0:8000"
-    ],
     "post-create-project-cmd": [
       "ln -sf vendor/bin/lilit lilit",
       "lilit make:env"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
   }
 }

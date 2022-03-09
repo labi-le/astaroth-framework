@@ -8,10 +8,10 @@ ___
 2. Список аттрибутов
     1. Для классов
         + [Event](#Event)
+            + [Action](#Action)
         + [Conversation](#Conversation)
 
     2. Для методов
-        - [Action](#Action)
         - [Message](#Message)
         - [MessageRegex](#MessageRegex)
         - [Attachment](#Attachment)
@@ -31,25 +31,6 @@ use Astaroth\Foundation\Enums\Events;
 
 #[Event(Events::MESSAGE_NEW)]
 class HelloWorld
-{
-    //...
-}
-```
-
-### Conversation
-
-Указывается вначале класса\
-Необходим для определения типа конференции\
-Можно указать id объектов для которых будут доступны методы
-
-```php
-use Astaroth\Attribute\ClassAttribute\Conversation;
-use Astaroth\Attribute\ClassAttribute\Event;
-use Astaroth\Foundation\Enums\Events;
-
-#[Event(Events::MESSAGE_EVENT)]
-#[Conversation(Conversation::PERSONAL_DIALOG, 418618, 1234)]
-class Foo
 {
     //...
 }
@@ -76,6 +57,26 @@ class HelloWorld extends BaseCommands
     {
         $this->message($data->getPeerId(), "Классное название");
     }}
+```
+
+
+### Conversation
+
+Указывается вначале класса\
+Необходим для определения типа конференции\
+Можно указать id объектов для которых будут доступны методы
+
+```php
+use Astaroth\Attribute\ClassAttribute\Conversation;
+use Astaroth\Attribute\ClassAttribute\Event;
+use Astaroth\Foundation\Enums\Events;
+
+#[Event(Events::MESSAGE_EVENT)]
+#[Conversation(Conversation::PERSONAL_DIALOG, 418618, 1234)]
+class Foo
+{
+    //...
+}
 ```
 
 ### Message
@@ -243,7 +244,6 @@ class Foo
 }
 
 ```
-
 ### Debug
 
 Указывается как для метода\
