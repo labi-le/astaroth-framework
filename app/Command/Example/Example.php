@@ -12,8 +12,8 @@ use Astaroth\DataFetcher\Events\MessageNew as Data;
 use Astaroth\Enums\ConversationType;
 use Astaroth\Enums\Events;
 
-#[Conversation(ConversationType::ALL)]
 #[Event(Events::MESSAGE_NEW)]
+#[Conversation(ConversationType::ALL)]
 class Example extends BaseCommands
 {
     #[Message("привет")]

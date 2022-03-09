@@ -11,14 +11,14 @@ use Astaroth\Commands\BaseCommands;
 use Astaroth\Enums\ConversationType;
 use Astaroth\Enums\Events;
 
-#[Conversation(ConversationType::ALL)]
 #[Event(Events::MESSAGE_NEW)]
+#[Conversation(ConversationType::ALL)]
 class Attachments extends BaseCommands
 {
     #[Message("котика")]
     public function cat(): void
     {
-        $api = static fn() => $this->catApi();
+        $api = fn() => $this->catApi();
 
         $twoCats = [
             $api(),
